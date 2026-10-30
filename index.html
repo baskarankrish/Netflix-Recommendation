@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Netflix Recommendation App – BI portfolio project</title>
+<meta name="description" content="Which shows get binge-watched together, and a recommendation app built on that correlation.">
+<style>
+:root{
+  --black:#141414; --red:#E50914; --red-ink:#B20710; --red-lite:#FF5A63;
+  --page:#F5F5F1; --card:#FFFFFF; --line:#E2E2DC; --ink:#1A1A1A; --ink-2:#4F4F4F; --focus:#0B57D0;
+  font-family:"Segoe UI",system-ui,-apple-system,Roboto,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--page);color:var(--ink);line-height:1.55;font-size:17px}
+:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:4px}
+a{color:var(--red-ink)}
+.wrap{max-width:1000px;margin:0 auto;padding:0 20px}
+
+.hero{background:var(--black);color:#fff;border-bottom:7px solid var(--red)}
+.hero .wrap{padding-top:64px;padding-bottom:52px}
+.eyebrow{margin:0 0 14px;color:var(--red-lite);font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
+.hero h1{margin:0 0 18px;font-size:clamp(36px,6vw,62px);line-height:1.05;letter-spacing:-.03em;font-weight:800}
+.hero .lede{margin:0 0 22px;font-size:clamp(18px,2.2vw,23px);max-width:46ch;color:#E6E6E6}
+.hero .stack{margin:0;font-size:15px;color:#CFCFCF}
+
+main .wrap{padding-top:30px;padding-bottom:20px}
+.intro{margin:0 0 36px;font-size:18px}
+h2{font-size:26px;margin:0 0 18px;letter-spacing:-.01em}
+.tools{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-bottom:44px}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:28px;position:relative;
+  box-shadow:0 1px 2px rgba(0,0,0,.04);transition:box-shadow .2s,transform .2s}
+.tool:hover{box-shadow:0 8px 24px rgba(0,0,0,.08);transform:translateY(-2px)}
+.tool .ico{width:40px;height:40px;margin-bottom:18px}
+.tool h3{margin:0 0 8px;font-size:23px;color:var(--ink)}
+.tool p{margin:0 0 18px;color:var(--ink-2)}
+.tool a{font-weight:700;text-decoration:none;font-size:18px}
+.tool a::after{content:"";position:absolute;inset:0;border-radius:14px}
+.tool a:hover{text-decoration:underline}
+
+table.findings{width:100%;border-collapse:separate;border-spacing:0;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;margin-bottom:18px}
+.findings th,.findings td{text-align:left;padding:15px 20px;border-bottom:1px solid var(--line)}
+.findings thead th{background:#F1EFEC;font-weight:700}
+.findings tbody tr:last-child td{border-bottom:0}
+.findings td.r{font-weight:700;font-variant-numeric:tabular-nums;white-space:nowrap}
+.summary{margin:0 0 30px}
+
+footer{border-top:1px solid var(--line);margin-top:10px}
+footer .wrap{padding-top:22px;padding-bottom:40px;font-size:15px;color:var(--ink-2)}
+footer p{margin:0 0 4px}
+@media (max-width:720px){
+  .tools{grid-template-columns:1fr}
+  .hero .wrap{padding-top:44px;padding-bottom:38px}
+  .findings th,.findings td{padding:12px;font-size:15px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none !important}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <p class="eyebrow">BI portfolio project</p>
+    <h1>Netflix Recommendation App</h1>
+    <p class="lede">Which shows get binge-watched together, and a recommendation app that turns that into “Because you watched…”.</p>
+    <p class="stack">Python · Vanilla JS · Correlation · Clustering · WCAG AA</p>
+  </div>
+</header>
+
+<main>
+  <div class="wrap">
+    <p class="intro">I analysed <b>18,000 viewing records from 2,000 subscribers</b> (about 708,000 hours watched across 9 shows) to answer a practical question: if someone loves one show, which other shows should we recommend next?</p>
+
+    <section aria-labelledby="toolsTitle">
+      <h2 id="toolsTitle">Explore the tools</h2>
+      <div class="tools">
+        <article class="tool">
+          <svg class="ico" viewBox="0 0 40 40" aria-hidden="true">
+            <rect x="2" y="2" width="11" height="11" rx="2" fill="#B20710"/><rect x="14.5" y="2" width="11" height="11" rx="2" fill="#E8848A"/><rect x="27" y="2" width="11" height="11" rx="2" fill="#E4E7EC"/>
+            <rect x="2" y="14.5" width="11" height="11" rx="2" fill="#E8848A"/><rect x="14.5" y="14.5" width="11" height="11" rx="2" fill="#B20710"/><rect x="27" y="14.5" width="11" height="11" rx="2" fill="#F6E1E2"/>
+            <rect x="2" y="27" width="11" height="11" rx="2" fill="#E4E7EC"/><rect x="14.5" y="27" width="11" height="11" rx="2" fill="#F6E1E2"/><rect x="27" y="27" width="11" height="11" rx="2" fill="#B20710"/>
+          </svg>
+          <h3>Show correlation heatmap</h3>
+          <p>Pearson correlation of per-subscriber watch time for every pair of shows, grouped by audience.</p>
+          <a href="heatmap.html">Open heatmap →</a>
+        </article>
+        <article class="tool">
+          <svg class="ico" viewBox="0 0 40 40" aria-hidden="true">
+            <rect x="2" y="6" width="17" height="11" rx="5.5" fill="#B20710"/><rect x="21" y="6" width="17" height="11" rx="5.5" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+            <rect x="2" y="22" width="36" height="5" rx="2.5" fill="#E4E7EC"/><rect x="2" y="22" width="24" height="5" rx="2.5" fill="#B20710"/>
+            <rect x="2" y="31" width="36" height="5" rx="2.5" fill="#E4E7EC"/><rect x="2" y="31" width="14" height="5" rx="2.5" fill="#B20710"/>
+          </svg>
+          <h3>Recommendation app</h3>
+          <p>Pick the shows you enjoyed and get ranked recommendations with a match percentage for each.</p>
+          <a href="app.html">Open app →</a>
+        </article>
+      </div>
+    </section>
+
+    <section aria-labelledby="findTitle">
+      <h2 id="findTitle">Key findings</h2>
+      <table class="findings">
+        <thead><tr><th scope="col">Finding</th><th scope="col">Shows</th><th scope="col">r</th></tr></thead>
+        <tbody>
+          <tr><td>Strongest link</td><td>Dark ↔ Umbrella Academy</td><td class="r">0.96</td></tr>
+          <tr><td>True-crime binge</td><td>Dahmer, You, Dexter</td><td class="r">0.82–0.95</td></tr>
+          <tr><td>Sci-fi mystery fans</td><td>Stranger Things, Dark, Umbrella Academy</td><td class="r">0.84–0.96</td></tr>
+          <tr><td>K-drama pair</td><td>It’s Okay To Not Be Okay ↔ Queen Of Tears</td><td class="r">0.87</td></tr>
+          <tr><td>Popular but a loner</td><td>Big Bang Theory ↔ every other show</td><td class="r">−0.04 to 0.00</td></tr>
+        </tbody>
+      </table>
+      <p class="summary">Pick <b>Dark</b> and the app recommends Umbrella Academy (96% match) and Stranger Things (84%). Big Bang Theory is the most-watched show, yet it predicts nothing: picking it alone gives every other show a 0% match.</p>
+    </section>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>Built by Baskaran Krishnamurthy</p>
+    <p>Independent portfolio project using a practice dataset. Not affiliated with, or endorsed by, Netflix.</p>
+  </div>
+</footer>
+</body>
+</html>
